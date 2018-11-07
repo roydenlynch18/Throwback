@@ -1,2 +1,3 @@
-README.md
-This file will be updated, but it for now just used to initialize a github repository in good practice.
+This file will be updated with further information at a later date.
+
+This is a chrome extension that will simply stores tabs of web browsing sessions, allowing easy access to recent collections of tabs.
