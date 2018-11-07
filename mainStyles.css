@@ -45,3 +45,23 @@ p.session-title {
   font-weight: bold;
   font-size: 1em;
 }
+
+button.saveSession {
+  background-color: #4CAF50;
+  border: none;
+  font-size: 30px;
+  width: 16px;
+  height: 15px;
+  border-radius: 4px;
+  margin-right: 2px;
+}
+
+button.openSession {
+  background-color: #008CBA;
+  border: none;
+  font-size: 15px;
+  width: 16px;
+  height: 15px;
+  border-radius: 4px;
+  margin-left: 2px;
+}
