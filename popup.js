@@ -5,7 +5,6 @@
 // storage to find and keys that start with "sessionUrls" because these are
 // the keys that store the applications saved sessions.
 function loadStoredSessions() {
-
   // Retrieving Session Urls Keys from Storage
 
   // Initialize an Empty Array Variable for the "sessionUrls" Items
@@ -46,39 +45,69 @@ function loadStoredSessions() {
 // Calling loadStoredSessions() Function
 loadStoredSessions();
 
-
+// Define Function to Create New Row for a Session's Urls
+// "createNewSession" is the buttom element on the popup representing a button to
+// create a new session to save/open a collection of browsing tabs.
+// The function will query the currently saved sessions and add one to the end.
 let createNewSession = document.getElementById('createNewSession');
-
 createNewSession.onclick = function(element) {
-
+  // Getting Elements on the Popup that have a Class of "Row" (1 Row = HTML Displaying 1 Session)
   var elements = document.getElementsByClassName("row");
-  var ids = '';
-  for (var i=0; i<elements.length; i++) {
-    ids += elements[i].id;
-  }
-  //chrome.extension.getBackgroundPage().console.log("Ids:");
-  //chrome.extension.getBackgroundPage().console.log(ids);
-  var row_num = elements.length;
+  // Optional Debugging Tool: (Displays All Row Ids that were Found)
+  // var ids = [];
+  // for (var i = 0; i < elements.length; i++) {
+  //   ids[i] = elements[i].id;
+  // }
+  // chrome.extension.getBackgroundPage().console.log("Found Following Row Ids: ");
+  // chrome.extension.getBackgroundPage().console.log(ids);
+  // The New Row Index = The Index of the Last Row + 1 (Rows Begin at Row 0, Not 1)
+  var row_num = elements.length-1+1;
+  // Create New Row
   createRow(row_num);
-
-
-
-  //document.getElementById(elements[elements.length-1]).appendChild(div);
 }
 
+// Define Function to Delete Rows (& Stored Sessions Urls)
+// "wipeAllSessions" is the buttom element on the popup representing a button to
+// wipe all sessions.
+// The function will query the currently stored sessions and simply remove them.
 let wipeAllSessions = document.getElementById('wipeAllSessions');
-
 wipeAllSessions.onclick = function(element) {
+
+  // Removing Session Urls Keys from Storage
+
+  // Initialize an Empty Array Variable for the "sessionUrls" Items to be Removed
+  var sessionUrlsKeys = []; //  Variable Must Be Defined Outside Chrome Call
+  // Grabbing Storeage
   chrome.storage.sync.get(null, function(items) {
+    // Allocate Keys to an Array Variable
     var allKeys = Object.keys(items);
-    var sessionUrlsKeys = [];
+    // Counter Variable for Inner Array Defining
+    var j = 0;
+    // Query the Keys
     for (var i = 0; i < allKeys.length; i++) {
+      // Check if Current Key is a "sessionUrls" Key
       if (allKeys[i].substr(0,11) == "sessionUrls") {
+        // Save it to New Array
+        sessionUrlsKeys[j] = allKeys[i];
+        // Increment New Array's Counter
+        j++;
+        // Remove It
         chrome.storage.sync.remove(allKeys[i]);
       }
     }
-    chrome.extension.getBackgroundPage().console.log(allKeys);
+    // Console Logging for Debugging.
+    chrome.extension.getBackgroundPage().console.log("Session Urls Keys Removed from Storage: ");
     chrome.extension.getBackgroundPage().console.log(sessionUrlsKeys);
+
+    // Removes the Rows for the Proper Session Urls Keys on the Popup
+
+    // Iterate Through Session Urls Keys
+    for (var i = 0; i < sessionUrlsKeys.length; i++) {
+      // Create the Row on the Popup
+      deleteRow(parseInt(sessionUrlsKeys[i].substr(sessionUrlsKeys[i].length-1), 10));
+      // Console Logging for Debugging.
+      chrome.extension.getBackgroundPage().console.log("Row "+parseInt(sessionUrlsKeys[i].substr(sessionUrlsKeys[i].length-1), 10)+" removed and deleted.");
+    }
   });
 }
 
@@ -119,15 +148,20 @@ function createRow(row_num) {
 
   document.body.appendChild(divRow);
 
-  chrome.storage.sync.set({['row'+row_num.toString()]: divRow}, function () {
-    chrome.extension.getBackgroundPage().console.log(divRow);
-    chrome.extension.getBackgroundPage().console.log("Row "+row_num.toString()+" saved to memory.");
-  });
+  // chrome.storage.sync.set({['row'+row_num.toString()]: divRow}, function () {
+  //   chrome.extension.getBackgroundPage().console.log(divRow);
+  //   chrome.extension.getBackgroundPage().console.log("Row "+row_num.toString()+" saved to memory.");
+  // });
 
   updateSessionsSaved();
   saveSessionBtns = document.getElementsByClassName('saveSession');
   openSessionBtns = document.getElementsByClassName('openSession');
 }
+
+function deleteRow(row_num) {
+  document.getElementById("row"+row_num.toString()).remove();
+}
+
 
 function updateSessionsSaved() {
   saveSessionBtns = document.getElementsByClassName('saveSession');
