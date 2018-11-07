@@ -1,0 +1,47 @@
+/* mainStyles.css */
+
+body {
+  width:100px;
+  height:200px;
+}
+
+p {
+  margin:0px;
+  padding:0px;
+}
+
+div.row {
+  width:100px;
+  height:20px;
+}
+
+div.col-text {
+  width:50px;
+  height:20px;
+}
+div.col-btns {
+  width:50px;
+  height:20px;
+}
+
+.container {
+  display: flex;
+}
+
+.fixed {
+  width: 50px;
+}
+
+.flex-item {
+  flex-grow: 1;
+}
+
+div.centering {
+  text-align: center;
+}
+
+p.session-title {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-size: 1em;
+}

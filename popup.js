@@ -1,5 +1,56 @@
 // popup.js
 
+let createNewSession = document.getElementById('createNewSession');
+
+createNewSession.onclick = function(element) {
+
+  var elements = document.getElementsByClassName("row");
+  var ids = '';
+  for (var i=0; i<elements.length; i++) {
+    ids += elements[i].id;
+  }
+  chrome.extension.getBackgroundPage().console.log("Ids:");
+  chrome.extension.getBackgroundPage().console.log(ids);
+  var row_num = elements.length;
+  createRow(row_num);
+
+  //document.getElementById(elements[elements.length-1]).appendChild(div);
+}
+
+// Function to Create a New Row
+function createRow(row_num) {
+  // Creating New Div for Row
+  var divRow = document.createElement("div");
+  divRow.id = "row"+row_num.toString();
+  divRow.setAttribute('class','row container');
+  // Creating New Div for Text Column
+  var divColText = document.createElement("div");
+  divColText.setAttribute('class','col-text flex-item centering');
+  // Creating New P for Text Column Div
+  var paragraph = document.createElement("p");
+  var text = document.createTextNode("Session "+row_num.toString());
+  paragraph.setAttribute('class','session-title');
+  // Creating New Div for Buttons Column
+  var divColBtns = document.createElement("div");
+  divColBtns.setAttribute('class','col-btns fixed centering');
+  // Creating New Buttons
+  var saveSessionBtn = document.createElement("button");
+  saveSessionBtn.id = "saveSession"+row_num.toString();
+  var openSessionBtn = document.createElement("button");
+  openSessionBtn.id = "openSession"+row_num.toString();
+
+  paragraph.appendChild(text);
+  divColText.appendChild(paragraph);
+  divColBtns.appendChild(saveSessionBtn);
+  divColBtns.appendChild(openSessionBtn);
+  divRow.appendChild(divColText);
+  divRow.appendChild(divColBtns);
+
+  document.body.appendChild(divRow);
+  //document.getElementById("row"+(row_num-1).toString()).appendChild(divRow);
+
+}
+
 // Defining References to Buttons on Dropdown Menu
 let saveSession1 = document.getElementById('saveSession1');
 let openSession1 = document.getElementById('openSession1');

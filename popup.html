@@ -1,30 +1,47 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <!-- <script src="popup.js"></script> -->
+
+    <link rel="stylesheet" type="text/css" href="mainStyles.css"/>
+
   </head>
 
   <body>
-    <style>
-      body {
-        width:100px;
-        height:200px;
-      }
-      p {
-        margin:0px;
-        padding:0px;
-      }
-    </style>
 
-    <div>
-      <button id="saveSession1"></button>
-      <button id="openSession1"></button>
-    </div>
-    <div>
-      <button id="saveSession2"></button>
-      <button id="openSession2"></button>
+    <!-- Row 0: Begins as 'Add New' Option -->
+    <div class="row container" id="row0" name="row 0">
+      <div class="col-text flex-item centering">
+        <p class="session-title">Session 0</p>
+      </div>
+      <div class="col-btns fixed centering">
+        <button id="createNewSession"></button>
+      </div>
     </div>
 
+    <!-- Row 1: Example of Row Containing Saved Session 1 -->
+    <div class="row container" id="row1" name="row 1">
+      <div class="col-text flex-item centering">
+        <p class="session-title">Session 1<p>
+      </div>
+      <div class="col-btns fixed centering">
+        <button id="saveSession1"></button>
+        <button id="openSession1"></button>
+      </div>
+    </div>
+
+    <!-- Row 2: Example of Row Containing Saved Session 2 -->
+    <div class="row container" id="row2" name="row 2">
+      <div class="col-text flex-item centering">
+        <p class="session-title">Session 2</p>
+      </div>
+      <div class="col-btns fixed centering">
+        <button id="saveSession2"></button>
+        <button id="openSession2"></button>
+      </div>
+    </div>
+
+    <!-- js -->
     <script src="popup.js"></script>
 
   </body>
