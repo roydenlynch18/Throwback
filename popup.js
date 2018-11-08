@@ -251,6 +251,3 @@ function updateSessionsSaved() {
      }
   }
 }
-
-//var promptText = prompt("Enter the title of this session!", "English Paper Research");
-//var text = document.createTextNode(promptText);
