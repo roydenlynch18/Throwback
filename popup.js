@@ -126,7 +126,8 @@ function createRow(row_num) {
   divColText.setAttribute('class','col-text flex-item centering');
   // Creating New P for Text Column Div
   var paragraph = document.createElement("p");
-  var text = document.createTextNode("Session "+row_num.toString());
+  var promptText = prompt("Enter the title of this session!", "English Paper Research");
+  var text = document.createTextNode(promptText);
   paragraph.setAttribute('class','session-title');
   // Creating New Div for Buttons Column
   var divColBtns = document.createElement("div");
@@ -138,13 +139,18 @@ function createRow(row_num) {
   var openSessionBtn = document.createElement("button");
   openSessionBtn.id = "openSession"+row_num.toString();
   openSessionBtn.setAttribute('class','openSession');
+  var deleteSessionBtn = document.createElement("button");
+  deleteSessionBtn.id = "deleteSession"+row_num.toString();
+  deleteSessionBtn.setAttribute('class','deleteSession');
 
   paragraph.appendChild(text);
   divColText.appendChild(paragraph);
   divColBtns.appendChild(saveSessionBtn);
   divColBtns.appendChild(openSessionBtn);
+  divColBtns.appendChild(deleteSessionBtn);
   divRow.appendChild(divColText);
   divRow.appendChild(divColBtns);
+
 
   document.body.appendChild(divRow);
 
@@ -166,6 +172,7 @@ function deleteRow(row_num) {
 function updateSessionsSaved() {
   saveSessionBtns = document.getElementsByClassName('saveSession');
   openSessionBtns = document.getElementsByClassName('openSession');
+  deleteSessionBtns = document.getElementsByClassName('deleteSession');
 
   for (var i = 0; i < saveSessionBtns.length; i++) {
     saveSessionBtns[i].onclick = function(element) {
@@ -238,5 +245,12 @@ function updateSessionsSaved() {
 
       });
     }
+
+    deleteSessionBtns[i].onclick = function(element) {
+      var sessionSelected = element.toElement.id;
+      var sessionNumber = sessionSelected.substr(sessionSelected.length-1);
+      chrome.storage.sync.remove('sessionUrls'+sessionNumber.toString());
+      deleteRow(sessionNumber);
+     }
   }
 }

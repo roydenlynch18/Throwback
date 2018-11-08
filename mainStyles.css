@@ -1,7 +1,7 @@
 /* mainStyles.css */
 
 body {
-  width:100px;
+  width:250px;
   height:200px;
 }
 
@@ -11,16 +11,16 @@ p {
 }
 
 div.row {
-  width:100px;
+  width:250px;
   height:20px;
 }
 
 div.col-text {
-  width:50px;
+  width:180px;
   height:20px;
 }
 div.col-btns {
-  width:50px;
+  width:70px;
   height:20px;
 }
 
@@ -58,6 +58,17 @@ button.saveSession {
 
 button.openSession {
   background-color: #008CBA;
+  border: none;
+  font-size: 15px;
+  width: 16px;
+  height: 15px;
+  border-radius: 4px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+button.deleteSession {
+  background-color: #FF0000;
   border: none;
   font-size: 15px;
   width: 16px;
