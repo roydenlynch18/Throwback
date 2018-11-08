@@ -46,52 +46,52 @@ p.session-title {
   font-size: 1em;
 }
 button.addSession {
-  background-image: url('/images/add-session.svg');
+  background-image: url('/images/new-session-icon.png');
   border: none;
   font-size: 30px;
   width: 16px;
-  height: 15px;
+  height: 16px;
   border-radius: 4px;
   margin-right: 2px;
 }
 
 button.wipeSessions {
-  background-image: url('/images/delete-session.svg');
+  background-image: url('/images/wipe-sessions-icon.png');
   border: none;
   font-size: 30px;
   width: 16px;
-  height: 15px;
+  height: 16px;
   border-radius: 4px;
   margin-right: 2px;
 }
 
 button.saveSession {
-  background-image: url('/images/save-session.svg');
+  background-image: url('/images/save-session-icon.png');
   border: none;
   font-size: 30px;
   width: 16px;
-  height: 15px;
+  height: 16px;
   border-radius: 4px;
   margin-right: 2px;
 }
 
 button.openSession {
-  background-image: url('/images/open-session.svg');
+  background-image: url('/images/open-session-icon.png');
   border: none;
   font-size: 15px;
   width: 16px;
-  height: 15px;
+  height: 16px;
   border-radius: 4px;
   margin-left: 2px;
   margin-right: 2px;
 }
 
 button.deleteSession {
-  background-image: url('/images/remove-session.svg');
+  background-image: url('/images/close-session-icon.png');
   border: none;
   font-size: 15px;
   width: 16px;
-  height: 15px;
+  height: 16px;
   border-radius: 4px;
   margin-left: 2px;
 }
