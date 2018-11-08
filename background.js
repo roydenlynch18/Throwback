@@ -54,5 +54,11 @@ chrome.runtime.onStartup.addListener(function() {
 //         actions: [new chrome.declarativeContent.ShowPageAction()]
 //       }]);
 //   });
-//
+// "persistent": false
+
+// "background": {
+//   "scripts": ["background.js"],
+//   "persistent": false
+// },
+
 // });
