@@ -147,27 +147,54 @@ function createRow(row_num,row_name) {
   var paragraph = document.createElement("p");
   var text = document.createTextNode(row_name);
   paragraph.setAttribute('class','session-title');
+  paragraph.appendChild(text);
   // Creating New Div for Buttons Column
   var divColBtns = document.createElement("div");
-  divColBtns.setAttribute('class','col-btns fixed centering');
+  divColBtns.setAttribute('class','col-btns fixed centering container');
+  // Creating New Div for Left Btn
+  var divLeftBtn = document.createElement("div");
+  divLeftBtn.setAttribute('class','col-left-btn flex-item tooltip');
+  // Creating New Tooltip Text Span
+  var spanLeftBtn = document.createElement("span");
+  spanLeftBtn.setAttribute('class','tooltiptext-left-btn');
+  spanLeftBtn.appendChild(document.createTextNode("Save Session"));
   // Creating New Save Session Button
   var saveSessionBtn = document.createElement("button");
   saveSessionBtn.id = "saveSession"+row_num.toString();
   saveSessionBtn.setAttribute('class','saveSession');
+  // Creating New Div for Mid Btn
+  var divMidBtn = document.createElement("div");
+  divMidBtn.setAttribute('class','col-mid-btn fixed-3-btn-mid tooltip');
+  // Creating New Tooltip Text Span
+  var spanMidBtn = document.createElement("span");
+  spanMidBtn.setAttribute('class','tooltiptext-mid-btn');
+  spanMidBtn.appendChild(document.createTextNode("Open Session"));
   // Creating New Open Session Button
   var openSessionBtn = document.createElement("button");
   openSessionBtn.id = "openSession"+row_num.toString();
   openSessionBtn.setAttribute('class','openSession');
+  // Creating New Div for Left Btn
+  var divRightBtn = document.createElement("div");
+  divRightBtn.setAttribute('class','col-right-btn fixed-3-btn-right tooltip');
+  // Creating New Tooltip Text Span
+  var spanRightBtn = document.createElement("span");
+  spanRightBtn.setAttribute('class','tooltiptext-right-btn');
+  spanRightBtn.appendChild(document.createTextNode("Close Session"));
   // Creating New Delete Session Button
-  var deleteSessionBtn = document.createElement("button");
-  deleteSessionBtn.id = "deleteSession"+row_num.toString();
-  deleteSessionBtn.setAttribute('class','deleteSession');
+  var closeSessionBtn = document.createElement("button");
+  closeSessionBtn.id = "deleteSession"+row_num.toString();
+  closeSessionBtn.setAttribute('class','deleteSession');
   // Appending All Elements to Popup
-  paragraph.appendChild(text);
   divColText.appendChild(paragraph);
-  divColBtns.appendChild(saveSessionBtn);
-  divColBtns.appendChild(openSessionBtn);
-  divColBtns.appendChild(deleteSessionBtn);
+  divLeftBtn.appendChild(spanLeftBtn);
+  divLeftBtn.appendChild(saveSessionBtn);
+  divMidBtn.appendChild(spanMidBtn);
+  divMidBtn.appendChild(openSessionBtn);
+  divRightBtn.appendChild(spanRightBtn);
+  divRightBtn.appendChild(closeSessionBtn);
+  divColBtns.appendChild(divLeftBtn);
+  divColBtns.appendChild(divMidBtn);
+  divColBtns.appendChild(divRightBtn);
   divRow.appendChild(divColText);
   divRow.appendChild(divColBtns);
   document.body.appendChild(divRow);

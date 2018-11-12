@@ -9,10 +9,20 @@ p {
   margin:0px;
   padding:0px;
 }
-
+div.row-top {
+  width:250px;
+  height:20px;
+  border-bottom-style: outset;
+  border-width: 5px;
+  border-radius: 25px;
+}
 div.row {
   width:250px;
   height:20px;
+  border-bottom-style: outset;
+  border-width: 2px;
+  border-radius: 25px;
+  margin-top: 15px;
 }
 
 div.col-text {
@@ -23,6 +33,14 @@ div.col-btns {
   width:70px;
   height:20px;
 }
+div.col-left-btn {
+  width:35px;
+  height:20px;
+}
+div.col-right-btn {
+  width:35px;
+  height:20px;
+}
 
 .container {
   display: flex;
@@ -30,6 +48,15 @@ div.col-btns {
 
 .fixed {
   width: 50px;
+}
+.fixed-btn {
+  width: 35px;
+}
+.fixed-3-btn-mid {
+  width: 25px;
+}
+.fixed-3-btn-right {
+  width: 23px;
 }
 
 .flex-item {
@@ -40,11 +67,18 @@ div.centering {
   text-align: center;
 }
 
-p.session-title {
+p.session-title2 {
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   font-size: 1em;
 }
+
+p.session-title {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+}
+
 button.addSession {
   background-image: url('/images/new-session-icon.png');
   border: none;
@@ -94,4 +128,255 @@ button.deleteSession {
   height: 16px;
   border-radius: 4px;
   margin-left: 2px;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    right: 50%;
+    margin-right: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 50%;
+    margin-right: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ************** */
+/* Tooltip Styles */
+/* ************** */
+
+/* Tooltip Container */
+.tooltip {
+    position: relative;
+}
+
+/* Top Row Left */
+.tooltip .tooltiptext-top-left-btn {
+    visibility: hidden;
+    width: 100px; /*120px*/
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    top: 125%; /*125%*/
+    right: 60%; /*50%*/
+    margin-right: -60px; /*-60px*/
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext-top-left-btn::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 55%;
+    margin-right: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+}
+
+.tooltip:hover .tooltiptext-top-left-btn {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Top Row Right */
+.tooltip .tooltiptext-top-right-btn {
+    visibility: hidden;
+    width: 100px; /*120px*/
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    top: 125%; /*125%*/
+    right: 160%; /*50%*/
+    margin-right: -60px; /*-60px*/
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext-top-right-btn::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 20%;
+    margin-right: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+}
+
+.tooltip:hover .tooltiptext-top-right-btn {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Left Button Tooltip */
+
+/* Tooltip Text Box */
+.tooltip .tooltiptext-left-btn {
+    visibility: hidden;
+    width: 100px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    right: 50%;
+    margin-right: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip Arrow */
+.tooltip .tooltiptext-left-btn::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 60%;
+    margin-right: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+}
+
+/* Hover Shows Tooltip Visibility */
+.tooltip:hover .tooltiptext-left-btn {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Mid Button Tooltip */
+
+.tooltip .tooltiptext-mid-btn {
+    visibility: hidden;
+    width: 100px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    right: 150%;
+    margin-right: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext-mid-btn::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 40%;
+    margin-right: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+}
+
+.tooltip:hover .tooltiptext-mid-btn {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Right Button Tooltip */
+
+.tooltip .tooltiptext-right-btn {
+    visibility: hidden;
+    width: 100px; /*120px*/
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    top: 125%; /*125%*/
+    right: 225%; /*50%*/
+    margin-right: -60px; /*-60px*/
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext-right-btn::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 15%;
+    margin-right: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+}
+
+.tooltip:hover .tooltiptext-right-btn {
+    visibility: visible;
+    opacity: 1;
 }
